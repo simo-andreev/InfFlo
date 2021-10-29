@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <DogName>Sasha</DogName>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Variant Condition=" '$(Variant)'=='' ">Debug</Variant>
+    </PropertyGroup>
+    
+    <ItemGroup Label="Emotion">
+        <ProjectReference Label="Engine" Include="../Emotion/Emotion.csproj" />
+        <ProjectReference Label="Tools" Condition=" '$(Configuration)'=='Debug' " Include="../Emotion.Tools/Emotion.Tools.csproj" />
+        <ProjectReference Label="Testing" Condition=" '$(Configuration)'=='Debug' " Include="../Emotion.Test/Emotion.Test.csproj" />
+        <ProjectReference Label="GUI" Include="../Emotion.Plugins.ImGuiNet/Emotion.Plugins.ImGuiNet.csproj" />
+    </ItemGroup>
+    
+</Project>
