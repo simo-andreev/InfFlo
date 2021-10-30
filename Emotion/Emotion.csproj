@@ -1,0 +1,185 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <NuspecFile>./Emotion.nuspec</NuspecFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Configurations>Debug;Release;DebugUnix64;DebugWeb</Configurations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;ANGLE, MESA</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>1701;1702;1591;1734</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWeb|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE;WEB</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile />
+    <NoWarn>1701;1702;1591;1734</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugUnix64|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;DEBUG;OpenAL; GLFW;</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile />
+    <NoWarn>1701;1702;1591;1734</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\FontShaders\GenerateSDF.frag" />
+    <None Remove="Assets\FontShaders\GenerateSDF.xml" />
+    <None Remove="Assets\FontShaders\SDF.frag" />
+    <None Remove="Assets\FontShaders\SDF.xml" />
+    <None Remove="Assets\FontShaders\VertColorNoDiscard.frag" />
+    <None Remove="Assets\FontShaders\VertColorNoDiscard.xml" />
+    <None Remove="Assets\FontShaders\Winding.frag" />
+    <None Remove="Assets\FontShaders\Winding.xml" />
+    <None Remove="Assets\FontShaders\WindingAA.frag" />
+    <None Remove="Assets\FontShaders\WindingAA.vert" />
+    <None Remove="Assets\FontShaders\WindingAA.xml" />
+    <None Remove="Assets\Shaders\Blit.frag" />
+    <None Remove="Assets\Shaders\Blit.xml" />
+    <None Remove="Assets\Shaders\OutlineShader.frag" />
+    <None Remove="Assets\Shaders\OutlineShader.xml" />
+    <None Remove="Assets\Shaders\RoundedRectangle.frag" />
+    <None Remove="Assets\Shaders\RoundedRectangle.xml" />
+    <None Remove="Assets\Shaders\TextureColorMask.frag" />
+    <None Remove="Assets\Shaders\TextureColorMask.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="AssetsNativeLibs\ANGLE\win64\libEGL.dll" Condition="$(DefineConstants.Contains('ANGLE'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\ANGLE\win64\libGLESv2.dll" Condition="$(DefineConstants.Contains('ANGLE'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\GLFW\linux\glfw.so" Condition="$(DefineConstants.Contains('GLFW'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\GLFW\macos\glfw.dylib" Condition="$(DefineConstants.Contains('GLFW'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\GLFW\win32\glfw.dll" Condition="$(DefineConstants.Contains('GLFW'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\GLFW\win64\glfw.dll" Condition="$(DefineConstants.Contains('GLFW'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\Mesa\win32\opengl32.dll" Condition="$(DefineConstants.Contains('MESA'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\Mesa\win64\opengl32.dll" Condition="$(DefineConstants.Contains('MESA'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\OpenAL\linux\libsndio.so.6.1" Condition="$(DefineConstants.Contains('OpenAL'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\OpenAL\linux\openal32.so" Condition="$(DefineConstants.Contains('OpenAL'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\OpenAL\macos\openal32.dylib" Condition="$(DefineConstants.Contains('OpenAL'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\OpenAL\win64\openal32.dll" Condition="$(DefineConstants.Contains('OpenAL'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AssetsNativeLibs\Superluminal\PerformanceAPI.dll" Condition="$(DefineConstants.Contains('Superluminal'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Condition="$(DefineConstants.Contains('FreeType'))">
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup Condition="!$(DefineConstants.Contains('OpenAL'))">
+    <Compile Remove="Platform\Implementation\OpenAL\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="!$(DefineConstants.Contains('GLFW'))">
+    <Compile Remove="Platform\Implementation\GlfwImplementation\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="!$(DefineConstants.Contains('ANGLE'))">
+    <Compile Remove="Platform\Implementation\EglAngle\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\FontShaders\GenerateSDF.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\GenerateSDF.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\SDF.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\SDF.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\VertColorNoDiscard.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\VertColorNoDiscard.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\Winding.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\Winding.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\WindingAA.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\WindingAA.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\FontShaders\WindingAA.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\Blit.frag" />
+    <EmbeddedResource Include="Assets\Shaders\Blit.xml" />
+    <EmbeddedResource Include="Assets\Shaders\Blur.frag">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\Blur.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\OutlineShader.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\OutlineShader.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\RoundedRectangle.frag">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\RoundedRectangle.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Shaders\TextureColorMask.frag" />
+    <EmbeddedResource Include="Assets\Shaders\DefaultFrag.frag" />
+    <EmbeddedResource Include="Assets\Shaders\TextureColorMask.xml" />
+    <EmbeddedResource Include="Assets\Shaders\DefaultShader.xml" />
+    <EmbeddedResource Include="Assets\Shaders\DefaultVert.vert" />
+    <EmbeddedResource Include="Assets\Shaders\GetTextureColor.c" />
+    <EmbeddedResource Include="Assets\Shaders\GetTextureSize.c" />
+    <EmbeddedResource Include="Assets\Shaders\SSAA.frag" />
+    <EmbeddedResource Include="Assets\Shaders\SSAA.xml" />
+  </ItemGroup>
+</Project>

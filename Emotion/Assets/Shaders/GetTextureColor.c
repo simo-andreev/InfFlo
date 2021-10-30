@@ -1,0 +1,1 @@
+﻿#define getTextureColor(sampler, uv) texture(sampler, uv)

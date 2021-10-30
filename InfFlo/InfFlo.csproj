@@ -12,11 +12,24 @@
         <Variant Condition=" '$(Variant)'=='' ">Debug</Variant>
     </PropertyGroup>
     
-    <ItemGroup Label="Emotion">
-        <ProjectReference Label="Engine" Include="../Emotion/Emotion.csproj" />
-        <ProjectReference Label="Tools" Condition=" '$(Configuration)'=='Debug' " Include="../Emotion.Tools/Emotion.Tools.csproj" />
-        <ProjectReference Label="Testing" Condition=" '$(Configuration)'=='Debug' " Include="../Emotion.Test/Emotion.Test.csproj" />
-        <ProjectReference Label="GUI" Include="../Emotion.Plugins.ImGuiNet/Emotion.Plugins.ImGuiNet.csproj" />
+<!--    <ItemGroup Label="Emotion">-->
+<!--        <ProjectReference Label="Engine" Include="../Emotion/Emotion.csproj" />-->
+<!--        <ProjectReference Label="Tools" Condition=" '$(Configuration)'=='Debug' " Include="../Emotion.Tools/Emotion.Tools.csproj" />-->
+<!--        <ProjectReference Label="Testing" Condition=" '$(Configuration)'=='Debug' " Include="../Emotion.Test/Emotion.Test.csproj" />-->
+<!--        <ProjectReference Label="GUI" Include="../Emotion.Plugins.ImGuiNet/Emotion.Plugins.ImGuiNet.csproj" />-->
+<!--    </ItemGroup>-->
+
+    <ItemGroup>
+<!--        <ProjectReference Include="../Emotion.Plugins.ImGuiNet/Emotion.Plugins.ImGuiNet.csproj" />-->
+<!--        <ProjectReference Include="../Emotion.Tools/Emotion.Tools.csproj" />-->
+<!--        <ProjectReference Include="../Emotion.Test/Emotion.Test.csproj" />-->
+        <ProjectReference Include="../Emotion/Emotion.csproj" />
+        <ProjectReference Include="..\Emotion.Plugins.ImGuiNet\Emotion.Plugins.ImGuiNet.csproj" />
+        <ProjectReference Include="..\Emotion.Tools\Emotion.Tools.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Graphics\Data" />
     </ItemGroup>
     
 </Project>
